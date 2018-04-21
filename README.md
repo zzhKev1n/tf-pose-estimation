@@ -42,11 +42,11 @@ You can test the inference feature with a by capturing video from your webcam.
 $ python3 src/assignment.py
 ```
 
-Or if that doesn't whatever reason, test the inference feature with a single image.
+<!-- Or if that doesn't whatever reason, test the inference feature with a single image.
 
 ```
 $ python3 src/assignment.py --image=...
-```
+``` -->
 
 Then you will see the screen as below with pafmap, heatmap, result and etc.
 

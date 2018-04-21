@@ -5,6 +5,7 @@ import time
 import cv2
 import numpy as np
 
+import common
 from estimator import TfPoseEstimator
 from networks import get_graph_path, model_wh
 
