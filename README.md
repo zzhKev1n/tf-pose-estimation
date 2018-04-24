@@ -25,7 +25,7 @@ The point of this assignment for you to research what is required and how it can
 ### Install
 
 ```bash
-$ git clone https://www.github.com/ishaanv/tf-openpose
+$ git clone https://github.com/ishaanv/tf-pose-estimation.git
 $ cd tf-pose-estimation
 $ pip install -r requirements.txt
 ```
