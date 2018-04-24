@@ -17,7 +17,7 @@ There are two parts to this task:
 
 You need to install dependencies below.
 
-- python3
+- python
 - tensorflow 1.4.1+
 - opencv3, protobuf, python3-tk
 
@@ -26,8 +26,8 @@ The point of this assignment for you to research what is required and how it can
 
 ```bash
 $ git clone https://www.github.com/ishaanv/tf-openpose
-$ cd tf-openpose
-$ pip3 install -r requirements.txt
+$ cd tf-pose-estimation
+$ pip install -r requirements.txt
 ```
 
 Requirements files in python contain some of the dependencies.
@@ -39,7 +39,7 @@ Requirements files in python contain some of the dependencies.
 You can test the inference feature with a by capturing video from your webcam.
 
 ```
-$ python3 src/assignment.py
+$ python src/assignment.py
 ```
 
 <!-- Or if that doesn't whatever reason, test the inference feature with a single image.
