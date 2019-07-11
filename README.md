@@ -72,7 +72,7 @@ You must also explain the logic of your code to your marker.
 
 As this is a paired assignment, you must also learn how to code in a team using *git* with your partner.    
 You and your partner will need to commit to your tf-pose-estimation repo **at least once**.  
-You must also co-author a commit with your partner.  
+You must also [co-author a commit](https://help.github.com/en/articles/creating-a-commit-with-multiple-authors) with your partner.  
 
 ## Submission
 Create, commit, and push a file named **results.json**.  
