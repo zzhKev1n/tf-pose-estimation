@@ -103,7 +103,7 @@ if __name__ == '__main__':
 
         # drawing lines on an image
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
-
+            hail_taxi(image)
         # FPS counter
         cv2.putText(image, "FPS: %f" % (1.0 / (time.time() - fps_time)),
                     (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
