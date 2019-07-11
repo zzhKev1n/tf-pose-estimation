@@ -78,7 +78,6 @@ if __name__ == '__main__':
     while True:
         # get image form the camera
         ret_val, image = camera.read()
-        ret_val, image = cam.read()
         # boilerplate
         canvas = np.zeros_like(image)
         img_scaled = cv2.resize(
