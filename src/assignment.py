@@ -94,7 +94,7 @@ if __name__ == '__main__':
         humans = e.inference(image)  # list of humans
         for id, human in enumerate(humans):
 
-            # TODO ensure it only prints this when someone is hailing a taxi.
+            # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
             hail_taxi(image)
 
