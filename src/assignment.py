@@ -71,11 +71,13 @@ if __name__ == '__main__':
 
     w, h = model_wh(args.resolution)
     e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
-    cam = cv2.VideoCapture(args.camera)
-    ret_val, image = cam.read()
+    camera = cv2.VideoCapture(args.camera)
+    ret_val, image = camera.read()
+    
 
     while True:
         # get image form the camera
+        ret_val, image = camera.read()
         ret_val, image = cam.read()
         # boilerplate
         canvas = np.zeros_like(image)
