@@ -7,11 +7,11 @@ You and your partner must implement a system which, given a video stream from yo
 
 All code edits should occur in `src/assignment.py`.
 
-This assignment requires you to install external libraries in order to run someone else's code (which estimate pose). To do that you must follow the instructions below.
+This assignment requires you to install external libraries in order to run someone else's code (which estimates 'pose'). To do that you must follow the instructions below.
 
 Once you have `assignment.py` running you must write your own python to detect when a taxi is hailed.
 
-**hint:** when you see a `code snippet` you should run this in your command prompt
+**\*\*hint:\*\*** when you see a `code snippet` you should run this command in your command prompt
 
 ## 1. Install and Run the Software
 ## Get the Repo
@@ -38,13 +38,14 @@ pip install -r requirements.txt
 pip install tensorflow
 conda install -c menpo opencv
 ```
+You should now have all the dependencies to start the assignment!
 
 ### Test Inference (one the dependencies are installed)
 
 You can test the inference feature by capturing video from your webcam.
 
-```
-$ python src/assignment.py
+```bash
+python src/assignment.py
 ```
 
 <!-- Or if that doesn't whatever reason, test the inference feature with a single image.
@@ -60,7 +61,7 @@ Then you will see something like below, but with your own camera.
 ## Hail a Taxi
 Edit `assignment.py` in the src folder so that you detect a taxi being hailed (any of your arms are raised)  
 Read the code and TODOs in assignment.py. Uncomment the line:
-```
+```python
 print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
 ```
 and run it to see what happens.
@@ -83,7 +84,7 @@ This is a dictionary like file which contains:
 5. a screen shot of your *partner* cab hailing
 
 The **results.json** file should be commited and pushed as follows:
-```json
+```javascript
 {
 "commit_me": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
 "commit_partner": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
