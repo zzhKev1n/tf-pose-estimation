@@ -9,6 +9,9 @@ import common
 from estimator import TfPoseEstimator
 from networks import get_graph_path, model_wh
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 logger = logging.getLogger('TfPoseEstimator-WebCam')
 logger.setLevel(logging.CRITICAL)
 ch = logging.StreamHandler()
