@@ -9,6 +9,7 @@ import common
 from estimator import TfPoseEstimator
 from networks import get_graph_path, model_wh
 
+import platform
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -46,6 +47,14 @@ POSE_COCO_BODY_PARTS = {
     18: "Background",
 }
 
+# call this when a taxi is being hailed!
+def hail_taxi(img):
+    print("Someone is hailing a taxi!")
+    cv2.putText(img, "TAXI!",
+                    (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (94, 218, 255), 2)
+    cv2.putText(img, platform.uname().node,
+                    (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+
 if __name__ == '__main__':
     # arguements to your program
     parser = argparse.ArgumentParser(
@@ -71,12 +80,13 @@ if __name__ == '__main__':
 
     w, h = model_wh(args.resolution)
     e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
-    cam = cv2.VideoCapture(args.camera)
-    ret_val, image = cam.read()
-
+    camera = cv2.VideoCapture(args.camera)
+    ret_val, image = camera.read()
+    
+    print("**** CTRL+C to exit ****")
     while True:
         # get image form the camera
-        ret_val, image = cam.read()
+        ret_val, image = camera.read()
         # boilerplate
         canvas = np.zeros_like(image)
         img_scaled = cv2.resize(
@@ -94,9 +104,9 @@ if __name__ == '__main__':
         humans = e.inference(image)  # list of humans
         for id, human in enumerate(humans):
 
-            # TODO ensure it only prints this when someone is hailing a taxi.
+            # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-            print("Someone is hailing a taxi!")
+            hail_taxi(image)
 
             # Debugging statement: remove before demonstration.
             # print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
@@ -105,8 +115,8 @@ if __name__ == '__main__':
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
 
         # FPS counter
-        cv2.putText(image, "FPS: %f" % (1.0 / (time.time() - fps_time)),
-                    (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv2.putText(image, "FPS: {:.2f}".format(1.0 / (time.time() - fps_time)),
+                    (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (128, 0, 0), 2)
         cv2.imshow('tf-pose-estimation result', image)
         fps_time = time.time()
         if cv2.waitKey(1) == 27:
