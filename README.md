@@ -75,26 +75,29 @@ You and your partner will need to commit to your tf-pose-estimation repo **at le
 You must also [co-author a commit](https://help.github.com/en/articles/creating-a-commit-with-multiple-authors) with your partner.  
 
 ## Submission
-Create, commit, and push a file named **results.json**.  
+Create, commit, and push a file named **results.json**. To your `me\week 6` directory.
 This is a dictionary like file which contains:
+1. *your* github username
+1. your *partners* github username
 1. a link to one of *your* commits
-2. a link to one of your *partners* commits
-3. a link to your *co-authored* commits
-4. a screen shot of *you* cab hailing
-5. a screen shot of your *partner* cab hailing
+1. a link to one of your *partners* commits
+1. a link to your *co-authored* commits
+1. a screen shot of *you* cab hailing
+2. a screen shot of your *partner* cab hailing
 
 The **results.json** file should be commited and pushed as follows:
-```javascript
+```json
 {
-"commit_me": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
-"commit_partner": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
-"commit_coauthor": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
-"screenshot_me": "/path/to/your/screenshot.jpg",
-"screenshot_partner": "/path/to/partner/screenshot.jpg"
+  "username_me": "YOURNAME",
+  "username_partner": "THEIRNAME",
+  "commit_me": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
+  "commit_partner": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
+  "commit_coauthor": "https://github.com/<YOUR-GITHUB>/tf-pose-estimation/commit/<thecommitSHA>",
+  "screenshot_me": "/path/to/your/screenshot.jpg",
+  "screenshot_partner": "/path/to/partner/screenshot.jpg"
 }
-
 ```
-
+_Remember_ this goes in your `me\week 6` directory.
 ## Deadline
 19th of July 2019. Marking will be done in the labs on the day.
 You must commit and push your results BEFORE the end of the lesson (2pm).
