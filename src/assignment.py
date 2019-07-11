@@ -74,7 +74,7 @@ if __name__ == '__main__':
     camera = cv2.VideoCapture(args.camera)
     ret_val, image = camera.read()
     
-
+    print("**** CTRL+C to exit ****")
     while True:
         # get image form the camera
         ret_val, image = camera.read()
