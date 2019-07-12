@@ -11,7 +11,11 @@ from networks import get_graph_path, model_wh
 
 import platform
 import os
+#Import extensions, adds neccessary functions written by others
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# Os module: portable way of using operating system dependent functionality. eg. read/write files, manipulate paths etc.
+#Environ- mapping objects representing the string environment. Or in plain talk, sets up the preferred os environment to variable 2
 
 logger = logging.getLogger('TfPoseEstimator-WebCam')
 logger.setLevel(logging.CRITICAL)
