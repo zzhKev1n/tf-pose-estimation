@@ -11,16 +11,25 @@ from networks import get_graph_path, model_wh
 
 import platform
 import os
-#Import extensions, adds neccessary functions written by others
+#Imports extensions, adds neccessary functions for the code. Note: these are written by others
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-# Os module: portable way of using operating system dependent functionality. eg. read/write files, manipulate paths etc.
-#Environ- mapping objects representing the string environment. Or in plain talk, sets up the preferred os environment to variable 2
+#Os module- extension for read/write files, manipulate paths etc.
+#Environ- Sets up the preferred os environment
 
 logger = logging.getLogger('TfPoseEstimator-WebCam')
+#Logs into webcam?
+
 logger.setLevel(logging.CRITICAL)
+#sets the threshold for logging to critical (numerical value of 50)
+
 ch = logging.StreamHandler()
+#Sends the outputs to any object/filetype? which supports write() and flush() methods/functions?. 
+#There are also two other handler besides StreamHandler, these are NullHandler and FileHandler
+
 ch.setLevel(logging.CRITICAL)
+#sets the threshold for ch variable or our Streamhandler to critical
+
 formatter = logging.Formatter(
     '[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s')
 ch.setFormatter(formatter)
