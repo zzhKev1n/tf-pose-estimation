@@ -24,8 +24,6 @@ logger.addHandler(ch)
 
 fps_time = 0
 
-# test commit: elijah
-
 #
 POSE_COCO_BODY_PARTS = {
     0: "Nose",
@@ -127,3 +125,4 @@ if __name__ == '__main__':
     cv2.destroyAllWindows()
 
 #Test Push to repo: brightonjake
+# test commit: elijah
