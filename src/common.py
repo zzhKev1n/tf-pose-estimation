@@ -133,3 +133,6 @@ def get_sample_images(w, h):
         read_imgfile('./images/p3_dance.png', w, h),
     ]
     return val_image
+
+#Co-author test
+#Co-author tests 2.0
