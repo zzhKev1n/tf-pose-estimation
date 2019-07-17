@@ -122,11 +122,19 @@ if __name__ == '__main__':
 
             #EyePosition = [(POSE_COCO_BODY_PARTS[14], v.x, v.y) for k,v in human.body_parts.items()]
             #WristPosition = [(POSE_COCO_BODY_PARTS[4], v.x, v.y) for k,v in human.body_parts.items()]
-            #if WristPosition [3] > EyePosition [3]:
+            #if WristPosition [3] < EyePosition [3]:
                 #hail_taxi(image)
 
             # Debugging statement: remove before demonstration.
-            print([(POSE_COCO_BODY_PARTS[4], v.x, v.y) for k,v in human.body_parts.items()])
+            #print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k, v in human.body_parts.items()])
+            HumanPose = [(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()]
+            try: 
+                REyeCoord = [BodyParts for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == REye]
+            except:
+                pass
+            print(REyeCoord)
+            #RightEye = HumanPose('REye')
+            #print(RightEye)
 
         # drawing lines on an image
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
