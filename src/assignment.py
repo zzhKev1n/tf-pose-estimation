@@ -122,7 +122,7 @@ if __name__ == '__main__':
             # That is, an arm is above their head.
 
             HumanPose = [(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()]
-            
+
             try: 
                 REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
             except:
@@ -160,3 +160,4 @@ if __name__ == '__main__':
 # test commit: elijah, Kevin
 
 #Co-author test
+#Co-author test 2
