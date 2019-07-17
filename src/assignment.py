@@ -121,26 +121,20 @@ if __name__ == '__main__':
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
 
-            #EyePosition = [(POSE_COCO_BODY_PARTS[14], v.x, v.y) for k,v in human.body_parts.items()]
-            #WristPosition = [(POSE_COCO_BODY_PARTS[4], v.x, v.y) for k,v in human.body_parts.items()]
-            #if WristPosition [3] < EyePosition [3]:
-                #hail_taxi(image)
-
-            # Debugging statement: remove before demonstration.
-            #print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k, v in human.body_parts.items()])
             HumanPose = [(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()]
+            
             try: 
                 REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
             except:
                 pass
-            REyeCoord.append('RE')
+            
             try:
                 RWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'RWrist']
                 if RWristCoord[0] > REyeCoord[0]:
                     hail_taxi(image)
             except:
                 pass
-            RWristCoord.append('RW')
+            
             try:
                 LWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LWrist']
                 if LWristCoord[0] > REyeCoord[0]:
@@ -148,13 +142,6 @@ if __name__ == '__main__':
             except:
                 pass
 
-            LWristCoord.append('LW')
-            #print(REyeCoord)
-            #print(RWristCoord)
-            #print(LWristCoord)
-
-            #RightEye = HumanPose('REye')
-            #print(RightEye)
 
         # drawing lines on an image
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
