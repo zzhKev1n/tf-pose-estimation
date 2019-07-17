@@ -5,6 +5,7 @@ import time
 import cv2
 import numpy as np
 
+#import pyautogui
 import common
 from estimator import TfPoseEstimator
 from networks import get_graph_path, model_wh
@@ -65,6 +66,7 @@ def hail_taxi(img):
     print("Someone is hailing a taxi!")
     cv2.putText(img, "TAXI!",
                     (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (94, 218, 255), 2)
+    cap.release()
     cv2.putText(img, platform.uname().node,
                     (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
@@ -132,24 +134,26 @@ if __name__ == '__main__':
                 REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
             except:
                 pass
-            
+            REyeCoord.append('RE')
             try:
                 RWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'RWrist']
-                if RWristCoord > REyeCoord:
+                if RWristCoord[0] > REyeCoord[0]:
                     hail_taxi(image)
             except:
                 pass
-            
+            RWristCoord.append('RW')
             try:
                 LWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LWrist']
-                if LWristCoord > REyeCoord:
+                if LWristCoord[0] > REyeCoord[0]:
                     hail_taxi(image)
             except:
                 pass
-            
-            print(REyeCoord)
-            print(RWristCoord)
-            
+
+            LWristCoord.append('LW')
+            #print(REyeCoord)
+            #print(RWristCoord)
+            #print(LWristCoord)
+
             #RightEye = HumanPose('REye')
             #print(RightEye)
 
