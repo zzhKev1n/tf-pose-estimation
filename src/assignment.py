@@ -129,10 +129,27 @@ if __name__ == '__main__':
             #print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k, v in human.body_parts.items()])
             HumanPose = [(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()]
             try: 
-                REyeCoord = [BodyParts for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == REye]
+                REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
             except:
                 pass
+            
+            try:
+                RWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'RWrist']
+                if RWristCoord > REyeCoord:
+                    hail_taxi(image)
+            except:
+                pass
+            
+            try:
+                LWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LWrist']
+                if LWristCoord > REyeCoord:
+                    hail_taxi(image)
+            except:
+                pass
+            
             print(REyeCoord)
+            print(RWristCoord)
+            
             #RightEye = HumanPose('REye')
             #print(RightEye)
 
