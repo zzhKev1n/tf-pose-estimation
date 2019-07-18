@@ -127,21 +127,33 @@ if __name__ == '__main__':
                 REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
             except:
                 pass
+
+            try: 
+                LEyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LEye']
+            except:
+                pass
+            
+            try:
+                if LEyeCoord[0] > REyeCoord[0]:
+                    EyeLevel = LEyeCoord
+                else:
+                    EyeLevel = REyeCoord
+            except:
+                pass
             
             try:
                 RWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'RWrist']
-                if RWristCoord[0] > REyeCoord[0]:
+                if RWristCoord[0] > EyeLevel[0]:
                     hail_taxi(image)
             except:
                 pass
             
             try:
                 LWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LWrist']
-                if LWristCoord[0] > REyeCoord[0]:
+                if LWristCoord[0] > EyeLevel[0]:
                     hail_taxi(image)
             except:
                 pass
-
 
         # drawing lines on an image
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
