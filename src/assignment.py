@@ -125,12 +125,12 @@ if __name__ == '__main__':
 
             try: 
                 REyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'REye']
-            except:
+            except Exception:
                 pass
 
             try: 
                 LEyeCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LEye']
-            except:
+            except Exception:
                 pass
             
             try:
@@ -138,21 +138,21 @@ if __name__ == '__main__':
                     EyeLevel = LEyeCoord
                 else:
                     EyeLevel = REyeCoord
-            except:
+            except Exception:
                 pass
             
             try:
                 RWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'RWrist']
                 if RWristCoord[0] > EyeLevel[0]:
                     hail_taxi(image)
-            except:
+            except Exception:
                 pass
             
             try:
                 LWristCoord = [yCoordin for (BodyParts, xCoordin, yCoordin) in HumanPose if BodyParts == 'LWrist']
                 if LWristCoord[0] > EyeLevel[0]:
                     hail_taxi(image)
-            except:
+            except Exception:
                 pass
 
         # drawing lines on an image
